@@ -1,0 +1,5 @@
+appium-client/node_modules/
+appium-client/runtime/
+uploads/
+vendor/
+web/
