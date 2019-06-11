@@ -25,10 +25,10 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             // [['id'],'id'],
-            // username and password are both required
+            // username and password are both required 
             // password is validated by validatePassword()
+            [['name'], 'string'],
             ['password', 'validatePassword'],
-            [['name', 'full_name', 'avatar', 'email', 'password', 'phone_number', 'birthday', 'gender', 'accommodation', 'lattitude', 'longtitude', 'indentity', 'type_app', 'mac_address', 'device_token', 'create_date'], 'string', 'max' => 255],
             [['name'], 'unique'],
             [['email'], 'unique'],
             [['email'], 'required'],
@@ -80,7 +80,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function getAuthKey()
     {
-        return $this->auth_key;
+        // return $this->auth_key;
     }
 
     /**
@@ -88,7 +88,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function validateAuthKey($authKey)
     {
-        return $this->auth_key === $authKey;
+        // return $this->auth_key === $authKey;
     }
 
     /*

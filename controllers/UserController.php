@@ -73,17 +73,16 @@ class UserController extends \yii\web\Controller
     public function actionCreate(){
     	$model = new User();
         if ($model->load(Yii::$app->request->post())) {
-           
-            $model->name= $model->name;
+
+            $model->name= $model->name;  
             $model->full_name = $model->full_name;
             $model->email = $model->email;
-             $model->password=   $model->hashPass($model->password);
+            $model->password=   $model->hashPass($model->password);
             $model->repassword= $model->password;
             $model->phone_number = $model->phone_number;
             $model->birthday= date('Y/m/d', strtotime($model->birthday));
             $model->accommodation = $model->accommodation;
-            
-             $datetime = date("Y-m-d H:i:s", strtotime('+7 hour', time()));
+            $datetime = date("Y-m-d H:i:s", strtotime('+7 hour', time()));
             $model->setAttributes(['created_date' => $datetime, 'updated_date' => $datetime]);          
            
             if ($model->save()) {

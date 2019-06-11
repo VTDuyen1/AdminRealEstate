@@ -28,13 +28,13 @@ $this->title = Html::encode('New Post');
 			            	],
 			                'title_post',
 			                // 'type',
-			                'price',
+			                // 'price',
 			                'location',
-			                'latitude',
-			                'longtitude',
-			                'negotiate',
-			                'created_date',
-			                'created_update',
+			                // 'latitude',
+			                // 'longtitude',
+			                // 'negotiate',
+			                // 'created_date',
+			                // 'created_update',
 			                'content',
 			                'phone_number',
 			                // 'status_id',
@@ -47,6 +47,7 @@ $this->title = Html::encode('New Post');
 						        'header'   => 'Action',
 						        'class'    => 'yii\grid\ActionColumn',
 						        'template' => '{view} {delete} {update} {download}',
+						        'contentOptions' => ['style' => 'width: 15%;'],
 						        'buttons'  => [
 		                              	'download' => function ($url, $data) {     
 		                                    return Html::a(

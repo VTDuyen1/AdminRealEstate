@@ -8,11 +8,13 @@ use yii\web\HttpException;
 use yii\web\UploadedFile;
 use app\models\UploadForm;
 use app\models\Post;
-
+use Google_Service_YouTube_VideoSnippet;
+use Google_Client;
+use Google_Service_YouTube;
 class PostController extends Controller
 {
     /**
-     * Displays homepage.
+     * Displays homepage.  
      *
      * @return string
      */
@@ -33,23 +35,57 @@ class PostController extends Controller
     {
         $model = new UploadForm();
         if ($model->load(Yii::$app->request->post())) {
-            // $model->uploadFile = UploadedFile::getInstance($model, 'uploadFile');
+            // $model->uploadImage = UploadedFile::getInstance($model, 'uploadImage');
+            $model->uploadVideo = UploadedFile::getInstance($model, 'uploadVideo');
             date_default_timezone_set("Asia/Ho_Chi_Minh");
+           /* if ($model->uploadImage) {
+                foreach ($model->uploadImage as $file) {
+                    if(empty($file->name)){
+                        $model->addError('uploadImage', 'You have to choice a file !');
+                        return $this->render('create', compact('model'));
+                    }
+                    $suffix    = date('YmdHis', time());
+                    $file_name = substr($file->name, 0, strpos($file->name, '.mp4'));
+                    $file->name = str_replace($file_name, $file_name.'_'.$suffix, $file->name);
+                    $filePathImage = Yii::$app->basePath.'/uploads/images/'.$file->name;
+                    $file->saveAs($filePathImage);
+                }
+            }*/
 
-            //var_dump(date('Y-m-d H:i:s'));die();
-            //$time      = strtotime('+3 hour', time());
+             //$time      = strtotime('+3 hour', time());
             $datetime  = date('Y-m-d H:i:s');
             $suffix    = date('YmdHis', time());
 
-            // if(empty($model->uploadFile->name)){
-            //     $model->addError('uploadFile', 'You have to choce a file !');
-            //     return $this->render('create', compact('model'));
-            // }
-            //trích xuất chuỗi 
-            //substr(string_name, start_position, string_length_to_cut)
-            //The strpos() function finds the position of the first occurrence of a string inside another string.
-           /* $file_name = substr($model->uploadFile->name, 0, strpos($model->uploadFile->name, '.xls'));
-            $model->uploadFile->name = str_replace($file_name, $file_name.'_'.$suffix, $model->uploadFile->name);*/
+            if(empty($model->uploadVideo->name)){
+                $model->addError('uploadVideo', 'You have to choice a file !');
+                return $this->render('create', compact('model'));
+            }
+            
+            $file_name_video = substr($model->uploadVideo->name, 0, strpos($model->uploadVideo->name, '.mp4'));
+            $model->uploadVideo->name = str_replace($file_name_video, $file_name_video.'_'.$suffix, $model->uploadVideo->name);
+
+
+
+            var_dump($model->uploadVideo);
+            die();
+            if ($model->uploadVideo) {
+                foreach ($model->uploadVideo as $file) {
+                    var_dump($file);
+                    if(empty($file->name)){
+                        $model->addError('uploadVideo', 'You have to choice a file !');
+                        return $this->render('create', compact('model'));
+                    }
+                    $suffix    = date('YmdHis', time());
+                    $file_name = substr($file->name, 0, strpos($file->name, '.mp4'));
+                    $file->name = str_replace($file_name, $file_name.'_'.$suffix, $file->name);
+                    $filePathVideo = Yii::$app->basePath.'/uploads/video/'.$file->name;
+                    $file->saveAs($filePathVideo); 
+                }
+            }
+          
+            $datetime  = date('Y-m-d H:i:s');
+            $suffix    = date('YmdHis', time());
+
             if ($model->upload()) {
                 // insert to db
                 $modelPost = new Post();
@@ -64,7 +100,7 @@ class PostController extends Controller
                 // $modelPost->feature           = $model->feature;
                 $modelPost->phone_number      = $model->phone_number;
                 // $modelPost->description       = $model->description;
-                // $modelPost->image             = $model->image;
+                // $modelPost->image             = $model->image;  
                 // $modelPost->video             = $model->video;
                 $modelPost->created_date      = $datetime;
                 $modelPost->created_update    = $datetime;
@@ -78,6 +114,7 @@ class PostController extends Controller
                     return $this->redirect('index');
                 }
             }
+
         }
 
         return $this->render('create', compact('model'));

@@ -107,7 +107,7 @@ AppAsset::register($this);
 </div>
 
     <nav class="navbar-default navbar-fixed-bottom navbar">
-        <p class="pull-left ">2018 © Real-Time Analytics. All Rights Reserved.</p>
+        <p class="pull-left ">2019 © Admin Real Estate. All Rights Reserved.</p>
 
         <p class="pull-right">Powered by <a href="#">web team</a></p>
     </nav">

@@ -9,11 +9,11 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 class UploadForm extends Model
 {
     /**
-     * @var UploadedFile
+     * @var UploadedFile 
      */
     public $title_post, $type, $price, $location, $latitude, $longtitude, $negotiate, $content, $phone_number, $image, $video, $feature;
     public $fileNameOld;
-    public $uploadFile;
+    public $uploadImage, $uploadVideo;
     public $json;   
     public $description;
 
@@ -33,36 +33,20 @@ class UploadForm extends Model
             [['video'], 'required'],
             [['feature'], 'required'],
             [['description'], 'safe'],
-            [['image'], 'file', 'extensions' => 'jpg, png'],
-            [['video'], 'file', 'extensions' => 'xls, xlsx'],
-
+            [['image'], 'file', 'extensions' => 'jpg, png', 'mimeTypes' => 'image/jpeg', 'maxFiles' => 10, 'skipOnEmpty' => false],
+            [['video'], 'file', 'extensions' => 'mp4, mp3', 'mimeTypes' => 'video', 'maxFiles' => 10, 'skipOnEmpty' => false],
         ];
     }
 
     public function upload()  
     {      
-        // $filePath = Yii::$app->basePath.'/uploads/post/'.$this->uploadFile->name;
+        // $filePathImage = Yii::$app->basePath.'/uploads/images/'.$this->uploadImage->name;
+        $filePathVideo = Yii::$app->basePath.'/uploads/video/'.$this->uploadVideo->name;
 
-        // //  save file to upload folder
-        // $this->uploadFile->saveAs($filePath);
-
-        // if (isset($_POST['checkform'])) {
-        //     // convert file excel to json string on formengine
-        //     $this->json = Yii::$app->formengine->xlsx2json($filePath);
-        // }
-        // else{
-        //     // convert file excel to json string
-        //     $this->json = Yii::$app->converter->xlsx2json($filePath);
-        // }
-
-        /*if (isset($_POST['checked'])) {
-             // convert file excel to json string on formengine
-            $this->json = Yii::$app->formengine->xlsx2json($filePath);
-        }
-        else{
-            // convert file excel to json string
-            $this->json = Yii::$app->converter->xlsx2json($filePath);
-        }*/
+        //  save file to upload folder
+        // $this->uploadImage->saveAs($filePathImage); 
+        $this->uploadVideo->saveAs($filePathVideo);
+        
         return true;
     }
 

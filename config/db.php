@@ -10,16 +10,13 @@ return [
     // Schema cache options (for production environment)
     //'enableSchemaCache' => true,
     //'schemaCacheDuration' => 60,
-    //'schemaCache' => 'cache',
-
+    //'schemaCache' => 'cache', 
 
     /*'class'    => 'yii\db\Connection',
     'dsn'      => 'mysql:host=127.0.0.1;dbname=real_estate123',
     'username' => 'root',
     'password' => '12345678',
     'charset'  => 'utf8',*/
-
-
     
     'class' => 'yii\db\Connection',
     'dsn' => 'mysql:host=127.0.0.1;dbname=real_estate_admin',

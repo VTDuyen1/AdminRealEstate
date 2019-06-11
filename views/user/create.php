@@ -8,7 +8,7 @@ $this->title = Html::encode('Create User');
 		<h3 class="page-title"><?= Html::encode('New User') ?></h3>
 		<div class="portlet light bordered">
 			<div class="portlet-body form row">
-				<div class="col-md-6">
+				<div class="col-md-6">  
 				<?= $this->render('_form', compact('model')); ?>
 				</div>
 			</div>
