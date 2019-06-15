@@ -11,7 +11,7 @@ $this->title = Html::encode('Upload New Post');
 				<?php
 					$form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]);
 				?>  
-				    <!-- ===================================POST NEW================================= -->  
+				    <!-- ===================================POST NEW================================= -->
 				    <?= $form->field($model, 'title_post')->input('text')->label('Title Post') ?>
 				    <?= $form->field($model, 'type')->input('text')->label('Type') ?>
 				    <?= $form->field($model, 'price')->input('text')->label('Price') ?>
@@ -33,8 +33,8 @@ $this->title = Html::encode('Upload New Post');
 					  <option value="pets">Pets Allowed</option>
 					  <option value="study">Study</option>
 					</select>
-				    <?= $form->field($model, 'uploadImage[]')->fileInput(['multiple' => true])->label('Choose Image') ?>
-				    <?= $form->field($model, 'uploadVideo')->fileInput(['multiple' => true])->label('Choose Video') ?>
+				    <?= $form->field($model, 'uploadImages[]')->fileInput(['multiple' => true])->label('Choose Image') ?>
+				    <?= $form->field($model, 'uploadVideos[]')->fileInput(['multiple' => true])->label('Choose Video') ?>
 				  	<?= $form->field($model, 'description')->textarea() ?>
 				    <div class="form-group">
 				    	<?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>

@@ -1,11 +1,11 @@
 <?php  
 use yii\helpers\Html;
 
-$this->title = Html::encode('Update User');
+$this->title = Html::encode('Update System Users');
 ?>
 <div class="row">
 	<div class="col-md-12">
-		<h3 class="page-title"><?= Html::encode('Update User') ?></h3>
+		<h3 class="page-title"><?= Html::encode('Update System Users') ?></h3>
 		<div class="portlet light bordered">
 			<div class="portlet-body form row">
 				<div class="col-md-6">

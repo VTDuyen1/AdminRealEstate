@@ -26,7 +26,8 @@ AppAsset::register($this);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="/favicon.ico" />     
+    <link rel="shortcut icon" href="/favicon.ico" />    
+    <link rel="stylesheet" href="icono.min.css"> 
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -78,14 +79,29 @@ AppAsset::register($this);
                                 'template' => '<a href="{url}" class="nav-link nav-toggle"><i class="icon-home"></i><span class="title">{label}</span></a>'
                             ],
                             [
-                                'label' => 'New Post',
+                                'label' => 'Management Post',
                                 'url' => ['/post'],
                                 'template' => '<a href="{url}" class="nav-link nav-toggle"><i class="icon-puzzle"></i><span class="title">{label}</span></a>'
                             ],
                             [
-                                'label' => 'Users',
+                                'label' => 'System Users',
                                 'url' => ['/user'],
                                 'template' => '<a href="{url}" class="nav-link nav-toggle"><i class="icon-user"></i><span class="title">{label}</span></a>'
+                            ],
+                            [
+                                'label' => 'Configuration',
+                                'url' => ['/config'],
+                                'template' => '<a href="{url}" class="nav-link nav-toggle"><i class="glyphicon glyphicon-th"></i><span class="title">{label}</span></a>'
+                            ],
+                            [
+                                'label' => 'Manager Of Uploaded',
+                                'url' => ['/manager'],
+                                'template' => '<a href="{url}" class="nav-link nav-toggle"><i class="glyphicon glyphicon-cd"></i><span class="title">{label}</span></a>'
+                            ],
+                            [
+                                'label' => 'Analytics & Reports',
+                                'url' => ['/analytics'],
+                                'template' => '<a href="{url}" class="nav-link nav-toggle"><i class="glyphicon glyphicon-gift"></i><span class="title">{label}</span></a>'
                             ],
                             [
                                 'label' => 'Settings',

@@ -2,19 +2,19 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\Url;
-$this->title = Html::encode('Users');
+$this->title = Html::encode('Manage System Users');
 ?>
 
 <div class="page-head">
      <div class="page-title">
-        <h1><?= Html::encode('Users') ?></h1>
+        <h1><?= Html::encode('Manage System Users') ?></h1>
      </div>
  </div>
 <div class="row">
 	<div class="col-md-12">
 		<div class="portlet light bordered">
 			<div class="portlet-body">
-				<div class="margin-bottom-20"><a href="<?= Yii::$app->urlManager->createUrl('user/create'); ?>" class="btn sbold green">Add New</a></div>
+				<div class="margin-bottom-20"><a href="<?= Yii::$app->urlManager->createUrl('user/create'); ?>" class="btn sbold green">Add System User</a></div>
 				<?php
 
 

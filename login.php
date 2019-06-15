@@ -44,7 +44,7 @@ AppAsset::register($this);
 			<?php ActiveForm::end() ?>
 		</div>
 	</div>
-	<div class="copyright"> 2018 © Real-Time Analytics. </div>
+	<div class="copyright"> 2019 © Admin Real Estate. </div>
 <?php $this->endBody() ?>
 </body>
 </html>

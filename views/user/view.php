@@ -2,12 +2,12 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
-$this->title = Html::encode('View TestCase');
+$this->title = Html::encode('View System Users');
 ?>
 
 <div class="portlet light">
     <div class="portlet-title">
-        <div class="caption"><?= Html::encode('View user: ' . $model->username) ?></div>
+        <div class="caption"><?= Html::encode('View System Users: ' . $model->username) ?></div>
     </div>
     <div class="portlet-body">
         <?php echo DetailView::widget([

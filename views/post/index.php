@@ -2,19 +2,19 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\Url;
-$this->title = Html::encode('New Post');
+$this->title = Html::encode('Management Post');
 ?>
 
 <div class="page-head">
      <div class="page-title">
-        <h1><?= Html::encode('New Post') ?></h1>
+        <h1><?= Html::encode('Management Post') ?></h1>
      </div>
 </div>
 <div class="row">
 	<div class="col-md-12">
 		<div class="portlet light bordered">
 			<div class="portlet-body">
-				<div class="margin-bottom-20"><a href="<?= Yii::$app->urlManager->createUrl('post/create'); ?>" class="btn sbold green">Add New</a></div>
+				<div class="margin-bottom-20"><a href="<?= Yii::$app->urlManager->createUrl('post/create'); ?>" class="btn sbold green">Add New Post</a></div>
 				<?php
 					echo GridView::widget([
 						'id'           => 'post-grid',
@@ -60,13 +60,13 @@ $this->title = Html::encode('New Post');
 							                return Html::a(
 							                		'<span class="glyphicon glyphicon-trash"></span>', 
 							                		[
-							                			'delete', 'id' => $model->post_id
+							                			'delete', 'post_id' => $model->post_id
 							                		],
 							                        [						                			
 							                            'title' => Yii::t('app', 'delete'),
 							                            'class'	=> 'btn-delete',
 							                            'data'	=> [
-							                            	'i'=>$model->post_id
+							                            	'post_id'=>$model->post_id
 							                            ]
 							                    	]				                
 							                );						              
@@ -137,12 +137,12 @@ $this->title = Html::encode('New Post');
 			$.ajax({
 				type: 'POST',
 				url: '<?php echo Yii::$app->urlManager->createAbsoluteUrl('post/delete'); ?>',
-				data : {'id' : key},
+				data : {'post_id' : key},
 				success:function(data){				
 			        location.reload();
 			    },
 				error: function(data) {				
-					alert("Error occured. Please try again.");
+					alert("Deleted 1 item");    
 				}
 			});
 		});
