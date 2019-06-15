@@ -19,7 +19,7 @@ return [
     'charset'  => 'utf8',*/
     
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=127.0.0.1;dbname=real_estate_admin',
+    'dsn' => 'mysql:host=127.0.0.1;dbname=real_estate123',
     'username' => 'root',
     'charset'  => 'utf8',
 ];

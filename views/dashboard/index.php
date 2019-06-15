@@ -27,7 +27,7 @@ $this->title = Html::encode('Dashboard');
             </div>
 			<div class="portlet-body">
 				<?php 
-					echo GridView::widget([
+					/*echo GridView::widget([
 						'id'=> 'dashboard-grid',
 						'dataProvider' => $dataProvider,
 						'rowOptions'=>['class'=>'text-center'],
@@ -75,7 +75,7 @@ $this->title = Html::encode('Dashboard');
 				        	]
 						]
 					])
-				?>
+*/				?>
 			</div>
 		</div>
 	</div>

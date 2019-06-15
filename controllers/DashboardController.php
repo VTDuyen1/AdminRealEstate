@@ -5,20 +5,20 @@ use Yii;
 use yii\web\Controller;
 use app\models\Device;
 use app\models\TestCase;
-use app\models\Operation;
+use app\models\User;
 use yii\web\HttpException;
 
 
 class DashboardController extends controller
 {
-	
+    
     public function actionIndex()
     {
         /*preg_match('!end-stop-([^\)]+)s!', ' inline float_button end-stop-10s ', $match);
           print_r($match);
                     die();
 */
-        $model = new Operation();
+        $model = new User();
         $dataProvider = $model->search();
 
         return $this->render('index', compact('model', 'dataProvider'));
@@ -26,7 +26,7 @@ class DashboardController extends controller
 
     public function getTestCasebyId($id)
     {
-        $model = TestCase::findOne(['id' => $id]);
+        $model = User::findOne(['id' => $id]);
         if ($model === null) {
             return null;
         }
